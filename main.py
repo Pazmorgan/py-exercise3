@@ -5,6 +5,9 @@ Exercise 3: Basic calculator
 """
 
 import random
+"""
+Morgan es re gei
+"""
 
 def guess_the_number():
   """
