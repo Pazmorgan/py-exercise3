@@ -32,6 +32,25 @@ def adivina_numero():
 
     adivina_numero()
 
+    import random
+
+def adivina_numero():
+    numero_aleatorio = random.randint(1, 10)
+    while True:
+        try:
+            intento = int(input("Adivina el número (entre 1 y 10): "))
+            if intento < 1 or intento > 10:
+                print("Por favor, ingresa un número entre 1 y 10.")  
+            if intento == numero_aleatorio:
+                print(f"Has adivinado el número {numero_aleatorio}.")
+                break
+            else:
+                print("Número incorrecto, sigue intentándolo")
+        except ValueError:
+            print("Por favor, ingresa un número válido.")
+
+    adivina_numero()
+
 def multiplication_table():
   """
     Using a while/for loops, implement a multiplication table.
@@ -39,6 +58,23 @@ def multiplication_table():
   # fix code
   print("multiplication_table for {number}")
 
+def multiplication_table(numero):
+   for i in range(1, 11):
+        resultado = numero * i
+        print(f"{numero} x {i} = {resultado}")
+
+# función con la tabla del 5
+multiplication_table(5)
+
+def multiplication_table2(numero):
+      i = 1
+      while i <= 10:
+        resultado = numero * i
+        print(f"{numero} x {i} = {resultado}")
+        i += 1
+
+#función con la tabla del 5
+multiplication_table2(5)
 
 def basic_calculator():
   """
@@ -55,7 +91,40 @@ def basic_calculator():
   result = None # fix code
 
   print("{num1} {operator} {num2} => Result:", result)
+def basic_calculator():
 
+  num1 = input("Enter the first number: ")
+  operator = input("Enter an operator (+, -, *, /): ")
+  num2 = input("Enter the second number: ")
+
+  result = None
+
+  if not num1.isdigit() or not num2.isdigit():
+        print("Error: Solo admite numeros")
+        return
+
+  num1 = float(num1)
+  num2 = float(num2)
+
+  if operator == '+':
+        result = num1 + num2
+  elif operator == '-':
+        result = num1 - num2
+  elif operator == '*':
+        result = num1 * num2
+  elif operator == '/':
+        if num2 != 0:
+            result = num1 / num2
+        else:
+            print("Error: no se puede dividir por 0.")
+            return
+  else:
+        print("Error: operador no válido.")
+        return
+
+  print(f"{num1} {operator} {num2} => Result: {result}")
+
+basic_calculator()
 
 def main():
   # input choice between 1-3 function
@@ -73,5 +142,7 @@ def main():
     basic_calculator()
   else:
     print("Invalid choice.")
+
+    
 
 main()
